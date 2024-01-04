@@ -22,7 +22,15 @@ app.get('/pokemonroute', (req, res) => {
     res.render('show',{pokemonNumber:id,pokemonName:pname})
         
     })
-    
+    app.get('/createpokemon', (req, res) => {
+        res.render('new');
+      })
+      app.post('/pokemon/new', (req, res) => {
+        const{name}=req.body;
+        const newName= { name:name,img:`http://img.pokemondb.net/artwork/${name}`};
+        pokemonData.push(newName);
+        res.render('new');
+      });
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
