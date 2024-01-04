@@ -12,12 +12,17 @@ app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 app.use(express.json());
 const pokemonData= require("./models/pokemon.js");
-app.get('/', (req, res) => {
+// pokemon route
+app.get('/pokemonroute', (req, res) => {
+    res.render('index',{p:pokemonData});
+  });
+    app.get ('/pokemon/:pname/:id',(req,res)=>{
+        id=req.params.id;
+        pname=req.params.pname;
+    res.render('show',{pokemonNumber:id,pokemonName:pname})
+        
+    })
     
-        res.send('Hello World');
-       
-    });
-
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
