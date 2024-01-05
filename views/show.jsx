@@ -7,6 +7,7 @@ const React =require("react");
         <h2>{`${pokemonNumber}. ${pokemonName}`}</h2>
         <img src={`http://img.pokemondb.net/artwork/${pokemonName}.jpg` }alt="" />
         <button><a href="/pokemonroute">Back </a></button>
+        <button><a href={`/pokemonDelete/${pokemonName}`}>delete pokemon </a></button>
      </div>
         
        
